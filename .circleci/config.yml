@@ -18,24 +18,8 @@ jobs:
           path: target/surefire-reports
       - store_artifacts:
           path: target/circleci-hello-world-0.1.0.jar
-   deploy:
-    docker:
-      - image: circleci/openjdk:10-jdk-browsers
-    steps:
-      - checkout
-      - run:
-          name: Deploy Master to Heroku
-          command: |
-            git push https://heroku:$4226d062-3b26-48d7-9264-c767dbe3ad27@git.heroku.com/hello-circleci.git master
-
-workflows:
-  version: 2
-  build-deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: hello-circleci
