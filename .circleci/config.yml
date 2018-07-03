@@ -19,6 +19,8 @@ jobs:
       - store_artifacts:
           path: target/circleci-hello-world-0.1.0.jar
   deploy:
+     docker:
+        - image: buildpack-deps:trusty
       steps:
         - checkout
         - run:
