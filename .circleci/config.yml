@@ -1,4 +1,9 @@
 version: 2
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: hello-circleci
 jobs:
   build:
     working_directory: ~/circleci-demo-java-spring
@@ -18,8 +23,3 @@ jobs:
           path: target/surefire-reports
       - store_artifacts:
           path: target/circleci-hello-world-0.1.0.jar
-    deployment:
-      production:
-        branch: master
-        heroku:
-          appname: hello-circleci
