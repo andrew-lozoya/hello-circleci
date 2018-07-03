@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/circleci-demo-java-spring
     docker:
-      - image: circleci/10-jdk-browsers
+      - image: circleci/openjdk:10-jdk-browsers
     steps:
       - checkout
       - restore_cache:
