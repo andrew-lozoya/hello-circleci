@@ -19,8 +19,8 @@ jobs:
       - store_artifacts:
           path: target/circleci-hello-world-0.1.0.jar
   deploy:
-    machine:
-      - production
+    docker:
+      - image: circleci/openjdk:10-jdk-browsers
     steps:
       - checkout
       - run:
